@@ -26,7 +26,7 @@ with mysql.connector.connect(host=host,user=user,password=password,db=db) as con
     cursor.execute('create table if not exists workersdata(wid int auto_increment primary key,name varchar(50),mobile varchar(20),mailid varchar(50),block varchar(2),role varchar(30),shift int)')
     cursor.execute("create table if not exists leaverequests(reqid int auto_increment primary key,sid int,reason varchar(100),reqdate timestamp default current_timestamp on update current_timestamp,letter longblob,status enum('pending','granted','rejected') default 'pending',foreign key(sid) references residentdata(rid))")
     cursor.execute("create table if not exists complaints(cid int auto_increment primary key,reid int,complaint varchar(100),attachments longblob,cdate timestamp default current_timestamp on update current_timestamp,foreign key(reid) references residentdata(rid))")
-
+mydb = mysql.connector.connect(host=host,user=user,password=password,db=db)
 
 @app.route('/')
 def home():
