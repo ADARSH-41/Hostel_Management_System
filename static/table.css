@@ -1,0 +1,68 @@
+table{
+    margin-top: 20px;
+    text-align: center;
+}
+
+h1{
+    margin-top: 100px;
+    text-align: center;
+}
+
+#print{
+    margin-top: 50px;
+}
+
+#room-status{
+    display: flex;
+}
+
+.card{
+    height: 150px;
+    margin: 10px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.card-title{
+    font-size: 20px;
+    margin-top: 15px;
+}
+
+/* #profile{
+
+} */
+.form-signup{
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: rgb(206, 227, 206);
+    border-radius: 10px;
+    margin-top: 30px;
+}
+/* .form-group */
+
+#fee-card{
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.navbar{
+    background-color: rgb(1, 58, 1);
+}
+
+.action{
+    display: flex;
+}
+
+#acceptbtn{
+    margin-right: 2px;
+}
+
+#rejectbtn{
+    margin-left: 2px;
+}
+
+.newroom{
+    float: right;
+}

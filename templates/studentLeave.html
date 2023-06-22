@@ -1,0 +1,56 @@
+{%extends 'studentProfile.html'%}
+{%block addcss%}
+    <link rel="stylesheet" href="{{url_for('static',filename='table.css')}}">
+{%endblock%}
+
+{%block content%}
+<div class="container">
+    <h1>Apply For a leave</h1>
+    <form class="form-signup" method="post">
+        {%with messages = get_flashed_messages()%}
+            {%if messages%}
+                {%for message in messages%}
+                    <center>{{message}}</center>
+                {%endfor%}
+            {%endif%}
+        {%endwith%}
+        <div class="form-group mb-3">
+            <input type="text" name="rid" class="form-control" placeholder="Enter Your Resident ID">
+        </div>
+        <div class="form-group mb-4">
+            <textarea cols="5" name="reason" class="form-control" placeholder="What's the reason for your leave request?..."></textarea>
+        </div>
+        <div class="form-group mb-5">
+            <label for="ltr">Upload Leave Letter : </label> <input type="file" name="letter" id="ltr">
+        </div>
+        <div>
+            <input type="submit" value="submit" id="" class="btn btn-warning">
+        </div>
+    </form>
+</div>
+<div class="container">
+    <h1>YOUR LEAVE REQUESTS</h1>
+    <table class="table">
+        <thead class="table-primary">
+            <tr>
+                <th>Request ID</th>
+                <th>Reason</th>
+                <th>Request T&D</th>
+                <th>LeaveLetter</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for i in data%}
+                <tr>
+                    <td>{{i[0]}}</td>
+                    <td>{{i[1]}}</td>
+                    <td>{{i[2]}}</td>
+                    <td>{{i[3]}}</td>
+                    <td>{{i[4]}}</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+{%endblock%}

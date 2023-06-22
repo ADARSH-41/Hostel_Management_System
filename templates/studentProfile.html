@@ -1,0 +1,48 @@
+{%extends 'studentDashboard.html'%}
+{%block addcss%}
+    <link rel="stylesheet" href="{{url_for('static',filename='table.css')}}">
+{%endblock%}
+
+{%block content%}
+<div class="container">
+    <h1>Your Profile</h1>
+    <table class="table table-striped-columns" id="profile">
+            <tr>
+                <td><b>Resident ID</b></td>
+                <td>CGRH{{i[0][4]}}R{{i[0][0]}}</td>
+            </tr>
+            <tr>
+                <td><b>Name</b></td>
+                <td>{{i[0][1]}}</td>
+            </tr>
+            <tr>
+                <td><b>Phone Number</b></td>
+                <td>{{i[0][2]}}</td>
+            </tr>
+            <tr>
+                <td><b>Email-ID</b></td>
+                <td>{{i[0][3]}}</td>
+            </tr>
+            <tr>
+                <td><b>Hostel Block</b></td>
+                <td>{{i[0][4]}}</td>
+            </tr>
+            <tr>
+                <td><b>Room Number</b></td>
+                <td>{{i[0][5]}}</td>
+            </tr>
+            <tr>
+                <td><b>Fee Due</b></td>
+                <td>{{i[0][6]}}</td>
+            </tr>
+            <!-- <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr> -->
+    </table>
+</div>
+{%endblock%}

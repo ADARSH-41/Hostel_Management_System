@@ -1,0 +1,54 @@
+{%extends 'studentProfile.html'%}
+{%block addcss%}
+    <link rel="stylesheet" href="{{url_for('static',filename='table.css')}}">
+{%endblock%}
+
+{%block content%}
+<div class="container">
+    <h1>Give a Complaint!!!</h1>
+    <form class="form-signup" method="post">
+        {%with messages = get_flashed_messages()%}
+            {%if messages%}
+                {%for message in messages%}
+                    <center>{{message}}</center>
+                {%endfor%}
+            {%endif%}
+        {%endwith%}
+        <div class="form-group mb-3">
+            <input type="text" name="rid" class="form-control" placeholder="Enter Your Resident ID">
+        </div>
+        <div class="form-group mb-4">
+            <textarea cols="5" name="complaint" class="form-control" placeholder="What's Your Complaint..."></textarea>
+        </div>
+        <div class="form-group mb-5">
+            <label for="ltr">Upload Attachments like images : </label> <input type="file" name="attachments" id="ltr">
+        </div>
+        <div>
+            <input type="submit" value="Make Complaint" id="" class="btn btn-warning">
+        </div>
+    </form>
+</div>
+<div class="container">
+    <h1>YOUR COMPLAINTS </h1>
+    <table class="table">
+        <thead class="table-primary">
+            <tr>
+                <th>Complaint ID</th>
+                <th>Complaint</th>
+                <th>Attachments</th>
+                <th>Complaint D&T</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for i in data%}
+                <tr>
+                    <td>{{i[0]}}</td>
+                    <td>{{i[1]}}</td>
+                    <td>{{i[2]}}</td>
+                    <td>{{i[3]}}</td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+{%endblock%}

@@ -1,0 +1,35 @@
+{%extends 'studentDashboard.html'%}
+{%block addcss%}
+    <link rel="stylesheet" href="{{url_for('static',filename='table.css')}}">
+    <style>
+
+    </style>
+{%endblock%}
+
+{%block content%}
+    <h1>Your Fee Due</h1>
+    <div class="card w-25" id="fee-card">
+        <p class="card-title">Your Hostel Fee Due Amount</p>
+        <div class="card-body">{{feedue}}</div>
+    </div>
+    <form class="form-signup" method="post">
+        {%with messages = get_flashed_messages()%}
+            {%if messages%}
+                {%for message in messages%}
+                    <center>{{message}}</center>
+                {%endfor%}
+            {%endif%}
+        {%endwith%}
+        <h2>pAY yOUR fEE</h2>
+        <div class="form-group mb-3">
+            <input type="text" placeholder="Enter Your Resident ID" name="rid" class="form-control">
+        </div>
+        <div class="form-group mb-3">
+            <input type="number" placeholder="Enter Amount" name="amount" class="form-control">
+        </div>
+        <div class="form-group mb-4">
+            <input type="submit" value="PAY" class="btn btn-success btn-block">
+        </div>
+    </form>
+
+{%endblock%}
