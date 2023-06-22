@@ -20,7 +20,7 @@ host=os.environ['RDS_HOSTNAME']
 port=os.environ['RDS_PORT']
 with mysql.connector.connect(host=host,user=user,password=password,db=db) as conn:
     cursor=conn.cursor(buffered=True)
-    cursor.execute('create table if not exists residents(fname varchar(50),lname varchar(50),email varchar(50) primary key,password varchar(50),mobile varchar(20),email_status enum("confirmed","not confirmed") not null default "not confirmed")')
+    cursor.execute('create table if not exists residents(fname varchar(50),lname varchar(50),email varchar(50) primary key,password varchar(50),mobile varchar(20),email_status enum("confirmed","not confirmed") default "not confirmed")')
     cursor.execute('create table if not exists residentdata(rid int primary key auto_increment,name varchar(50),phone varchar(20),mail varchar(50),block varchar(2),room int,fee int)')
     cursor.execute('alter table residentdata auto_increment=1101')
     cursor.execute('create table if not exists workersdata(wid int auto_increment primary key,name varchar(50),mobile varchar(20),mailid varchar(50),block varchar(2),role varchar(30),shift int)')
