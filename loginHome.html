@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+</head>
+<style>
+    #c1{
+        text-align: center;
+        background-color: whitesmoke;
+        padding: 20px;
+    }
+    #c2{
+        display: flex;
+    }
+    img{
+        margin: 60px 40px;
+        border-radius: 10px;
+    }
+    .form-signup{
+        margin: 60px 60px 60px 50px;
+        
+        background-color: aliceblue;
+        padding: 60px 70px;
+        border-radius: 10px;
+    }
+    a:hover{
+        text-decoration: none;
+    }
+    .form-group{
+        margin-bottom: 30px;
+    }
+    .form-control{
+        width: 400px;
+    }
+    #b4{
+        margin-bottom: 25px;
+    }
+</style>
+<body>
+    <div class="container-fluid" id="c1"><h1>CG RESIDENTIAL HOMES</h1></div>
+    <div class="container-fluid" id="c2">
+        <div class="image">
+            <img src="{{url_for('static',filename='imoji.jpeg')}}" width="600px" height="600px"/>
+        </div>
+        <div class="form-signup">
+            <div class="form-group"><a href={{url_for('admin')}}><button class="form-control btn-danger">Login as Admin</button></a></div><br/>
+            <div class="form-group"><a href={{url_for('slogin')}}><button class="form-control btn-dark">Login as Student</button></a></div>
+            <hr/>
+            <div style="text-align: center;">New Resident of the Hostel?</div>
+            <hr/><br/>
+            <div class="form-group"><a href={{url_for('sregister')}}><button class="form-control btn-success">New Registration</button></a></div>
+            <hr/><div style="text-align: center;">Guest Visitor?</div><hr/><br/>
+            <div class="form-group" id="b4"><a href={{url_for('guest')}}><button class="form-control btn-info ">Login as Guest</button></a></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Desk</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+</head>
+{%with messages = get_flashed_messages()%}
+    {%if messages%}
+        {%for message in messages%}
+            <center><b>{{message}}</b></center>
+        {%endfor%}
+    {%endif%}
+{%endwith%}
+<style>
+    .form-signup{
+        margin: 0 auto;
+        max-width: 500px;
+        background-color: white;
+        padding: 50px;
+        border-radius: 10px;
+    }
+    body{
+        padding-top: 100px;
+        background-color: aliceblue;
+    }
+    .form-group h2{
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .form-control{
+        text-align: center;
+    }
+    .loginurl{
+        margin-top: 15px;
+    }
+</style>
+<body>
+    <div class="container">
+        <form class="form-signup" method="post" >
+        <div class="form-group"><h2>Student Registration<hr/></h2></div>
+        <div  class="form-group">
+            <div class="row">
+                <div class="col-md-6"><input type="text" name="sfname" placeholder="First Name" class="form-control"/></div>
+                <div class="col-md-6"><input type="text" name="slname" placeholder="Last Name" class="form-control"/></div>
+            </div>    
+        </div>
+        <div class="form-group">
+            <input type="email" name="smail" placeholder="Enter Your Mail ID" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <input type="password" name="spass" placeholder="Enter Password" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <input type="password" name="rspass" placeholder="Re-Enter Password" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="number" name="mobile" placeholder="Enter Your Mobile Number" class="form-control"/>
+        </div>
+        <label class="form-group"><input type="checkbox"/> I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Guidelines & Policies</a></label>
+        <input type="submit" value="Register" class="btn btn-success btn-block"/>
+        <div class="loginurl">Already have hostel account? <a href="{{url_for('slogin')}}">Login</a></div>
+        </form>
+    </div>
+</body>
+</html>

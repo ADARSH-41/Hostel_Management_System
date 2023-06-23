@@ -1,0 +1,41 @@
+{%extends 'adminScreen.html'%}
+{%block addcss%}
+    <link rel="stylesheet" href="{{url_for('static',filename='table.css')}}">
+{%endblock%}
+
+{%block content%}
+    <h1>Allocate a New Room</h1>
+    {%with messages = get_flashed_messages()%}
+        {%if messages%}
+            {%for message in messages%}
+                <center>{{message}}</center>
+            {%endfor%}
+        {%endif%}
+    {%endwith%}
+    <form class="form-signup" method="post">
+        <div class="form-group mb-3">
+            <input type="text" placeholder="Enter Resident Name" name="rname" id="" class="form-control" required>
+        </div>
+        <div class="form-group mb-3">
+            <input type="text" placeholder="Enter Resident Mobile Number" name="phone" id="" class="form-control" required>
+        </div>
+        <div class="form-group mb-3">
+            <input type="text" placeholder="Enter Resident Mail ID" name="mail" id="" class="form-control" required>
+        </div>
+        <div class="form-group mb-3">
+            <select name="block" id="" class="form-control" required>
+                <option value="" selected disabled>Select Hostel Block</option>
+                <option value="A">BLOCK-A</option>
+                <option value="B">BLOCK-B</option>
+                <option value="C">BLOCK-C</option>
+                <option value="D">BLOCK-D</option>
+            </select>
+        </div>
+        <div class="form-group mb-3">
+            <input type="number" placeholder="Enter Room Number" name="room" id="" class="form-control" required>
+        </div>
+        <div class="form-group mb-3">
+            <input type="submit" value="Allocate Room" id="" class="form-control btn btn-success">
+        </div>
+    </form>
+{%endblock%}
