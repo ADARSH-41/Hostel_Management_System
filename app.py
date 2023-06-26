@@ -82,6 +82,10 @@ def sregister():
         try:
             if pwd==rpwd:
                 cursor.execute('insert into residents(fname,lname,email,password,mobile) values(%s,%s,%s,%s,%s)',(fname,lname,email,pwd,mobile))
+                subject='Email Confirmation'
+                confirm_link=url_for('confirm',token=token(email,salt1),_external=True)
+                body=f"Thanks for signing up.Follow this link-\n\n{confirm_link}"
+                sendmail(to=email,body=body,subject=subject)
                 mydb.commit()
                 flash('Registration Sucessful. Check mail inbox for verification mail')
             else:
@@ -90,6 +94,7 @@ def sregister():
             flash('Mail ID already in use')
         else:
             cursor.close()
+            return render_template('Sregistration.html')
     return render_template('Sregistration.html')
 
 @app.route('/adminlogin',methods=['GET','POST'])
